@@ -1,0 +1,15 @@
+version: "3.8"
+services:
+  db:
+    image: mysql/mysql-server:8.0.29
+    ports:
+      - "$DATABASE_PORT:3306"
+    environment:
+      TZ: "Asia/Tokyo"
+      MYSQL_ROOT_PASSWORD: "$DATABASE_PASSWORD"
+      MYSQL_ALLOW_EMPTY_PASSWORD: "true"
+      MYSQL_ROOT_HOST: "%"
+    volumes:
+      - "db_data:/var/lib/mysql"
+volumes:
+  db_data:
